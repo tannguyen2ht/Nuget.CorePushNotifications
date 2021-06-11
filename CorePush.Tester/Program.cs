@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using CorePush.Apple;
 using CorePush.Google;
-
+using CorePush.Tester.Models;
 namespace CorePush.Tester
 {
     class Program
@@ -20,9 +20,9 @@ namespace CorePush.Tester
         #endregion
 
         #region FCM Sender Settings
-        private const string fcmReceiverToken = "TODO";
-        private const string fcmSenderId = "TODO";
-        private const string fcmServerKey = "TODO";
+        private const string fcmReceiverToken = "";
+        private const string fcmSenderId = "1010491462237";
+        private const string fcmServerKey = "AAAA60X8El0:APA91bGr7rSdU1fdEg_LFC9zf9Mxz5AtuwCVpx79A4Z3A2i9EysVlTn7tYynEecQLEMdIDfSsUFcxRaAmeHqLlTWxjjMPSv9dmXUQN6MWIdwx9I8iVaLYE_fdF-o_N7YKgVSPm8is1j7";
 
         # endregion
 
@@ -31,7 +31,7 @@ namespace CorePush.Tester
         static async Task Main()
         {
             //await SendApnNotificationAsync();
-            //await SendFcmNotificationAsync();
+            await SendFcmNotificationAsync();
 
             Console.WriteLine("Done!");
         }
@@ -65,7 +65,7 @@ namespace CorePush.Tester
             };
 
             var fcm = new FcmSender(settings, http);
-            var payload = new 
+            var payload = new
             {
                 notification = new { body = "Hello World!" }
             };
